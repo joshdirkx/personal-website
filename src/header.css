@@ -1,0 +1,6 @@
+.header {
+    font-size: 3.25em; /* Adjust this value to make the text larger or smaller */
+    text-align: center;
+    position: relative;
+    top: 50px; /* Adjust this value to set the distance from the top */
+}
