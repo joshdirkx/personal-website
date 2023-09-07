@@ -1,7 +1,7 @@
-.navigation {
-    font-size: 2em;
+.links {
+    font-size: 1em;
     text-align: center;
-    top: 50px;
+    bottom: 50px;
     position: relative;
     display: flex;
     justify-content: space-between;

@@ -4,13 +4,15 @@ import './header.css';
 const Header = () => {
     return (
             <div>
-              <h1 className="header">
+              <div className="upper">
                 Howdy y'all, I'm Josh
-              </h1>
+              </div>
 
-              <h2 className="header">
+              <div className="lower">
                 Solutions Architect
-              </h2>
+              </div>
+
+              <div className="border" />
             </div>
     );
 }

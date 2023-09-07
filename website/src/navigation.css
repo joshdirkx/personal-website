@@ -1,0 +1,20 @@
+.navigation {
+    font-size: 2em;
+    text-align: center;
+    top: 50px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  padding-bottom: 50px;
+    /*background-color: rgba(147, 161, 161, .25);*/
+    /*border: 2px solid rgba(147, 161, 161, .25);*/
+    /*border-radius: 10px;*/
+    /*background-clip: padding-box;*/
+    /*box-shadow: 0 0 8px 8px rgba(147, 161, 161, .25);*/
+
+}
+
+.link {
+  border-bottom: 1px solid black;
+}

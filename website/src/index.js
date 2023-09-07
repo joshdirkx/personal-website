@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import About from "./About";
 import Background from "./Background";
+import Contact from "./Contact";
 import Footer from "./Footer";
 import Header from "./Header";
+import Links from "./Links";
 import Navigation from "./Navigation";
 import reportWebVitals from './reportWebVitals';
 import './tailwind.css';
@@ -16,7 +18,9 @@ root.render(
     <Navigation />
     <Header />
     <About />
-    <Footer />
+    {/*<Contact />*/}
+    {/*<Links />*/}
+    {/*<Footer />*/}
   </React.StrictMode>
 );
 
