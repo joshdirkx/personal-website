@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import './App.css';
 import fillerText from './fillerText';
 import StatusLine from './components/status/StatusLine'
 import '@fontsource-variable/fira-code';
@@ -12,7 +11,7 @@ function App() {
     };
 
     return (
-        <div className="App bg-solarized-base03 h-screen text-solarized-base1">
+        <div className="bg-solarized-base03 h-screen text-solarized-base1">
             {/* Tab Navigation Bar */}
             <div className="flex justify-between bg-solarized-base02 px-4 py-top-2">
                 <div className="tabs flex">
