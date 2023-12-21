@@ -1,4 +1,4 @@
-import React, {ReactNode } from 'react';
+import React from 'react';
 import StatusLine from "../status/StatusLine";
 import fillerText from "../../fillerText";
 
