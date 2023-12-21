@@ -2,10 +2,7 @@ import React from 'react';
 import StatusLine from "../status/StatusLine";
 import fillerText from "../../fillerText";
 
-interface HorizontalProps {
-}
-
-function HorizontalSplit({}: HorizontalProps) {
+function HorizontalSplit() {
     return (
         <div className="flex-1 pr-2 flex flex-col">
             <div className="flex-1 py-5 border-r border-solarized-base01">
