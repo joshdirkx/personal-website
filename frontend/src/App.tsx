@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import logo from './logo.svg';
 import './App.css';
-import "@fontsource/fira-code";
 import fillerText from './fillerText';
+import StatusLine from './components/status/StatusLine'
+import '@fontsource-variable/fira-code';
 
-const App = () => {
-  const [isModalOpen, setModalOpen] = useState(false);
+function App() {
+  const [isModalOpen, setModalOpen] = useState<boolean>(false);
 
   const toggleModal = () => {
     setModalOpen(!isModalOpen); // This line toggles the state of the modal
@@ -70,14 +72,19 @@ const App = () => {
     </div>
        {/* Main Content Section */}
 <div className="flex-grow p-4 text-left flex">
-  {/* Left Side */}
-  <div className="flex-1 pr-2 border-r border-transparent">
-{fillerText}
-  </div>
-
-  {/* Vertical Divider */}
-  <div className="flex items-center justify-center px-2">
-    |
+  {/* Left Side Split Horizontally */}
+  <div className="flex-1 pr-2 flex flex-col">
+    <div className="flex-1 py-5 border-r border-solarized-base01">
+      <div className="flex text-5xl">
+      <div className="text-solarized-green pr-12">Howdy y'all, I'm</div>
+      <div className="text-solarized-magenta">Josh</div>
+      </div>
+<StatusLine content="Name" activePane={false} />
+    </div>
+    <div className="flex-1 border-r border-solarized-base01 pr-4">
+      {/* Bottom section of the left side */}
+      {fillerText}
+    </div>
   </div>
 
   {/* Right Side */}
@@ -86,12 +93,9 @@ const App = () => {
   </div>
 </div>
 
-{/* Status Bar */}
-<div className="fixed bottom-4 left-0 right-0 bg-solarized-base02 text-solarized-base1 py-1 px-4 text-left">
-  Status
-</div>
+<StatusLine content="About" activePane={true} />
     </div>
   );
-};
+}
 
 export default App;
