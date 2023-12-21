@@ -18,6 +18,7 @@ function HorizontalSplit({}: HorizontalProps) {
             <div className="flex-1 border-r border-solarized-base01 pr-4">
                 {fillerText}
             </div>
+            <StatusLine content="About" activePane={true} />
         </div>
     );
 }
