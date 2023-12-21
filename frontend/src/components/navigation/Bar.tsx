@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import fillerText from "../../fillerText";
+import Tab from './Tab';
 
 function Bar() {
     const [isModalOpen, setModalOpen] = useState<boolean>(false);
@@ -11,22 +12,11 @@ function Bar() {
     return (
         <div className="flex justify-between bg-solarized-base02 px-4 py-top-2">
             <div className="tabs flex">
-                <div className="pr-2">
-                    <div className="tab bg-solarized-base03 px-10 py-top-1 rounded-t-lg">Home</div>
-                </div>
-                <div className="pr-2">
-                    <div className="tab bg-solarized-base03 px-10 py-top-1 rounded-t-lg">About</div>
-                </div>
-                <div className="pr-2">
-                    <div className="tab bg-solarized-base03 px-10 py-top-1 rounded-t-lg">Contact</div>
-                </div>
-                <div className="pr-2">
-                    <div className="tab bg-solarized-base03 px-10 py-top-1 rounded-t-lg">Articles</div>
-                </div>
-                <div className="pr-2">
-                    <div className="tab bg-solarized-base03 px-10 py-top-1 rounded-t-lg">Case Studies</div>
-                </div>
-
+                <Tab text="Home" />
+                <Tab text="About" />
+                <Tab text="Contact" />
+                <Tab text="Articles" />
+                <Tab text="Case Studies" />
             </div>
             {/* Central Button */}
             <button
