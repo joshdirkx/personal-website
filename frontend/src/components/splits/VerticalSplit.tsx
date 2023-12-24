@@ -1,14 +1,12 @@
-import React from 'react';
-import fillerText from "../../fillerText";
-import HorizontalSplit from "./HorizontalSplit";
+import React, { ReactNode } from 'react';
 
-function VerticalSplit() {
+interface VerticalSplitProps {
+    children?: ReactNode;
+}
+function VerticalSplit({ children }: VerticalSplitProps) {
     return (
-        <div className="flex-grow p-4 text-justify flex">
-            <HorizontalSplit />
-            <div className="flex-1 pl-2">
-                {fillerText}
-            </div>
+        <div className="flex h-screen">
+            {children}
         </div>
     );
 }

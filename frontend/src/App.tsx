@@ -1,14 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Screen from './components/Screen'
 import VerticalSplit from './components/splits/VerticalSplit'
-import Bar from './components/navigation/Bar'
+import HorizontalSplit from './components/splits/HorizontalSplit'
+import Pane from './components/splits/Pane'
+import fillerText from './fillerText'
+import Header from './components/Header'
+import NavigationMenu from './components/NavigationMenu'
 import '@fontsource-variable/fira-code';
 
 function App() {
     return (
-        <div className="bg-solarized-base03 h-screen text-solarized-base1">
-            <Bar />
-            <VerticalSplit />
-        </div>
+        <Screen>
+            <VerticalSplit>
+                <Pane width={`1/6`}>
+                    <HorizontalSplit>
+                        <Pane width={`1`}>
+                            <Header />
+                        </Pane>
+                        <Pane width={`1`} height={`full`}>
+                            <NavigationMenu />
+                        </Pane>
+                    </HorizontalSplit>
+                </Pane>
+                <Pane width={`5/6`}>
+                    {fillerText}
+                </Pane>
+            </VerticalSplit>
+        </Screen>
     );
 }
 
