@@ -33,7 +33,7 @@ resource "aws_s3_bucket_ownership_controls" "this" {
   }
 }
 
-resource "aws_s3_bucket_acl" "this" {
+resource "aws_s3_bucket_public_access_block" "this" {
   bucket = aws_s3_bucket.this.id
 
   block_public_acls       = true
@@ -41,6 +41,16 @@ resource "aws_s3_bucket_acl" "this" {
   ignore_public_acls      = true
   restrict_public_buckets = false
 
+}
+
+resource "aws_s3_bucket_acl" "example" {
+  depends_on = [
+    aws_s3_bucket_ownership_controls.this,
+    aws_s3_bucket_public_access_block.this,
+  ]
+
+  bucket = aws_s3_bucket.this.id
+  acl    = "public-read"
 }
 
 resource "aws_s3_bucket_policy" "bucket_policy" {
