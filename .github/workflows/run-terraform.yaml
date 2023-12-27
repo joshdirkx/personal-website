@@ -1,9 +1,5 @@
 name: run terraform
 
-env:
-  AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
 on:
   push:
     branches:
@@ -13,10 +9,12 @@ on:
 jobs:
   terraform:
     name: run terraform
+
     defaults:
       run:
         working-directory: ./terraform
     runs-on: ubuntu-latest
+
     steps:
       - name: checkout
         uses: actions/checkout@master
@@ -27,7 +25,13 @@ jobs:
           echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
 
-      - name: setup
+      - name: configure aws credentials
+        uses: aws-actions/configured-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN }}
+          aws-region: $${{ secrets.AWS_REGION }}
+
+      - name: setup terraform
         uses: hashicorp/setup-terraform@v3
 
       - name: format
@@ -40,7 +44,7 @@ jobs:
         id: init
         run: |
           terraform init \
-          --backend-config="bucket=${{ secrets.S3_BUCKET }}" \
+          --backend-config="bucket=${{ secrets.AWS_S3_STATE_BUCKET }}" \
           --backend-config="key=${{ github.event.repository.name }}/${{ steps.extract_branch.outputs.branch }}" \
           --backend-config="region=${{ secrets.AWS_REGION }}"
 
