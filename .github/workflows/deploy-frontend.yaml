@@ -3,7 +3,7 @@ name: upload frontend artifact to s3
 on:
   workflow_run:
     workflows:
-      - build and upload frontend artifact
+      - build frontend artifact
     types:
       - completed
   push:

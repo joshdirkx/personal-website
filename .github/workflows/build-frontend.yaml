@@ -1,6 +1,11 @@
-name: build and upload frontend artifact
+name: build frontend artifact
 
 on:
+  workflow_run:
+    workflows:
+      - run terraform
+    types:
+      - completed
   push:
     branches:
       - main
@@ -8,6 +13,10 @@ on:
 jobs:
   on-success:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./frontend
 
     steps:
       - name: checkout
