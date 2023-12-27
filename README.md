@@ -4,6 +4,7 @@
 
 follow
 https://www.automat-it.com/post/using-github-actions-with-aws-iam-roles
+add admin permissions
 
 create s3 state bucket
 
