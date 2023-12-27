@@ -28,11 +28,13 @@ jobs:
         id: extract_branch
 
       - name: setup
-        uses: hashicorp/setup-terraform@master
+        uses: hashicorp/setup-terraform@v3
 
       - name: format
         id: fmt
-        run: terraform fmt -check
+        run: |
+          terraform fmt \
+          -check
 
       - name: initialize
         id: init
@@ -44,7 +46,9 @@ jobs:
 
       - name: validate
         id: validate
-        run: terraform validate -no-color
+        run: |
+          terraform validate \
+          -no-color
 
       - name: plan
         id: plan
