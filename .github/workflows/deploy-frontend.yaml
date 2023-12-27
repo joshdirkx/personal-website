@@ -3,6 +3,7 @@ name: upload frontend artifact to s3
 on:
   workflow_run:
     workflows:
+      - run terraform
       - build frontend artifact
     types:
       - completed
