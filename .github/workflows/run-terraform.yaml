@@ -19,15 +19,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@master
 
       - name: extract branch name
         shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        run: |
+          echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
 
       - name: setup
-        uses: hashicorp/setup-terraform@v1
+        uses: hashicorp/setup-terraform@master
 
       - name: format
         id: fmt
@@ -35,7 +36,11 @@ jobs:
 
       - name: initialize
         id: init
-        run: terraform init --backend-config="bucket=${{ secrets.S3_BUCKET }}" --backend-config="key=${{ github.event.repository.name }}/${{ steps.extract_branch.outputs.branch }}" --backend-config="region=${{ secrets.AWS_REGION }}"
+        run: |
+          terraform init \
+          --backend-config="bucket=${{ secrets.S3_BUCKET }}" \
+          --backend-config="key=${{ github.event.repository.name }}/${{ steps.extract_branch.outputs.branch }}" \
+          --backend-config="region=${{ secrets.AWS_REGION }}"
 
       - name: validate
         id: validate
@@ -44,11 +49,14 @@ jobs:
       - name: plan
         id: plan
         if: github.event_name == 'pull_request'
-        run: terraform plan -no-color -input=false
+        run: |
+          terraform plan \
+          -no-color \
+          -input=false
         continue-on-error: true
 
       - name: comment on pull request
-        uses: actions/github-script@v6
+        uses: actions/github-script@master
         if: github.event_name == 'pull_request'
         env:
           PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
@@ -79,8 +87,12 @@ jobs:
 
       - name: plan status
         if: steps.plan.outcome == 'failure'
-        run: exit 1
+        run: |
+          exit 1
 
       - name: apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform apply -auto-approve -input=false
+        run: |
+          terraform apply \
+          -auto-approve \
+          -input=false
