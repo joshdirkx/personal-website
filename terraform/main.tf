@@ -89,6 +89,7 @@ resource "aws_s3_bucket_website_configuration" "this" {
 }
 
 resource "aws_cloudfront_distribution" "this" {
+  aliases         = [data.aws_route53_zone.this.name]
   enabled         = true
   is_ipv6_enabled = true
 
@@ -138,6 +139,16 @@ resource "aws_cloudfront_distribution" "this" {
   price_class = "PriceClass_100"
 }
 
+
+resource "aws_acm_certificate" "this" {
+  domain_name       = data.aws_route53_zone.this.name
+  validation_method = "DNS"
+}
+
+resource "aws_acm_certificate_validation" "cert" {
+  certificate_arn         = aws_acm_certificate.this.arn
+  validation_record_fqdns = [aws_route53_record.this.fqdn]
+}
 
 resource "aws_route53_record" "this" {
   zone_id = data.aws_route53_zone.this.zone_id
