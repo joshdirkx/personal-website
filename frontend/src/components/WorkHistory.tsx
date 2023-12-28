@@ -1,4 +1,7 @@
 import { UserIcon } from '@heroicons/react/20/solid'
+import Highlight from '../images/highlight.jpeg'
+import Release from '../images/release.jpeg'
+import TrueCar from '../images/truecar.jpeg'
 
 const timeline = [
   {
@@ -10,6 +13,7 @@ const timeline = [
     datetime: '2020-09-20',
     icon: UserIcon,
     iconBackground: 'bg-gray-400',
+    image: Highlight,
   },
   {
     id: 2,
@@ -20,6 +24,7 @@ const timeline = [
     datetime: '2020-09-22',
     icon: UserIcon,
     iconBackground: 'bg-blue-500',
+    image: TrueCar,
   },
   {
     id: 3,
@@ -30,6 +35,7 @@ const timeline = [
     datetime: '2020-09-28',
     icon: UserIcon,
     iconBackground: 'bg-green-500',
+    image: Release,
   },
   {
     id: 4,
@@ -40,6 +46,7 @@ const timeline = [
     datetime: '2020-09-30',
     icon: UserIcon,
     iconBackground: 'bg-blue-500',
+    image: TrueCar,
   },
   {
     id: 5,
@@ -50,6 +57,7 @@ const timeline = [
     datetime: '2020-09-22',
     icon: UserIcon,
     iconBackground: 'bg-blue-500',
+    image: TrueCar,
   },
   {
     id: 6,
@@ -60,6 +68,7 @@ const timeline = [
     datetime: '2020-09-22',
     icon: UserIcon,
     iconBackground: 'bg-blue-500',
+    image: TrueCar,
   },
   {
     id: 7,
@@ -70,6 +79,7 @@ const timeline = [
     datetime: '2020-09-22',
     icon: UserIcon,
     iconBackground: 'bg-blue-500',
+    image: TrueCar,
   },
 ]
 
@@ -89,14 +99,21 @@ export default function WorkHistory() {
               ) : null}
               <div className="relative flex space-x-3">
                 <div>
-                  <span
+                  <img
+                    src={`${event.image}`}
+                    alt="work history logo"
                     className={classNames(
-                      event.iconBackground,
-                      'h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white'
+                    'object-contain h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white'
                     )}
-                  >
-                    <event.icon className="h-5 w-5 text-white" aria-hidden="true" />
-                  </span>
+                  />
+                  {/*<span*/}
+                  {/*  className={classNames(*/}
+                  {/*    event.iconBackground,*/}
+                  {/*    'h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white'*/}
+                  {/*  )}*/}
+                  {/*>*/}
+                  {/*  <event.icon className="h-5 w-5 text-white" aria-hidden="true" />*/}
+                  {/*</span>*/}
                 </div>
                 <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
                   <div>
