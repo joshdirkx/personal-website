@@ -108,7 +108,10 @@ jobs:
           -auto-approve \
           -input=false
 
+
   build:
+    needs: terraform
+
     runs-on: ubuntu-latest
 
     defaults:
@@ -137,6 +140,8 @@ jobs:
           path: frontend/build
 
   deploy:
+    needs: build
+
     runs-on: ubuntu-latest
 
     steps:
