@@ -1,16 +1,15 @@
 import { Popover } from '@headlessui/react'
 import Background from './Background'
 import WorkHistory from './WorkHistory'
-import Header from './Header'
 
-const navigation = [
-  // { name: 'About', href: '#', current: true },
-  // { name: 'Articles', href: '#', current: false },
-]
+// const navigation = [
+//   // { name: 'About', href: '#', current: true },
+//   // { name: 'Articles', href: '#', current: false },
+// ]
 
-function classNames(...classes: any[]) {
-  return classes.filter(Boolean).join(' ')
-}
+// function classNames(...classes: any[]) {
+//   return classes.filter(Boolean).join(' ')
+// }
 
 export default function Layout() {
   return (

@@ -80,7 +80,7 @@ function classNames(...classes: any[]) {
 export default function WorkHistory() {
   return (
     <div className="flow-root">
-      <ul role="list" className="-mb-8">
+      <ul className="-mb-8">
         {timeline.map((event, eventIdx) => (
           <li key={event.id}>
             <div className="relative pb-8">

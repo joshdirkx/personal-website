@@ -33,9 +33,6 @@ jobs:
       - name: build
         run: npm run build
 
-      - name: List build directory
-        run: ls -l build
-
       - name: upload artifacts
         uses: actions/upload-artifact@master
         with:
