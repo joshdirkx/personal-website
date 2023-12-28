@@ -18,7 +18,7 @@ const timeline = [
     href: '#',
     date: '2023 - 2023',
     datetime: '2020-09-22',
-    icon: HandThumbUpIcon,
+    icon: UserIcon,
     iconBackground: 'bg-blue-500',
   },
   {
@@ -28,7 +28,7 @@ const timeline = [
     href: '#',
     date: '2022 - 2023',
     datetime: '2020-09-28',
-    icon: CheckIcon,
+    icon: UserIcon,
     iconBackground: 'bg-green-500',
   },
   {
@@ -38,7 +38,7 @@ const timeline = [
     href: '#',
     date: '2021 - 2022',
     datetime: '2020-09-30',
-    icon: HandThumbUpIcon,
+    icon: UserIcon,
     iconBackground: 'bg-blue-500',
   },
   {
@@ -48,7 +48,7 @@ const timeline = [
     href: '#',
     date: '2020 - 2021',
     datetime: '2020-09-22',
-    icon: HandThumbUpIcon,
+    icon: UserIcon,
     iconBackground: 'bg-blue-500',
   },
   {
@@ -58,7 +58,7 @@ const timeline = [
     href: '#',
     date: '2017 - 2020',
     datetime: '2020-09-22',
-    icon: HandThumbUpIcon,
+    icon: UserIcon,
     iconBackground: 'bg-blue-500',
   },
   {
@@ -68,7 +68,7 @@ const timeline = [
     href: '#',
     date: '2015 - 2017',
     datetime: '2020-09-22',
-    icon: HandThumbUpIcon,
+    icon: UserIcon,
     iconBackground: 'bg-blue-500',
   },
 ]
