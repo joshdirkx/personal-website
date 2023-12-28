@@ -106,14 +106,6 @@ export default function WorkHistory() {
                     'object-contain h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white'
                     )}
                   />
-                  {/*<span*/}
-                  {/*  className={classNames(*/}
-                  {/*    event.iconBackground,*/}
-                  {/*    'h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white'*/}
-                  {/*  )}*/}
-                  {/*>*/}
-                  {/*  <event.icon className="h-5 w-5 text-white" aria-hidden="true" />*/}
-                  {/*</span>*/}
                 </div>
                 <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
                   <div>
