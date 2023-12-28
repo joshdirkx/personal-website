@@ -10,7 +10,13 @@ terraform {
 }
 
 provider "aws" {
+  alias  = "default"
   region = var.aws_region
+}
+
+provider "aws" {
+  alias  = "acm_certificate"
+  region = "us-east-1"
 }
 
 locals {
@@ -22,6 +28,8 @@ locals {
 }
 
 resource "aws_s3_bucket" "this" {
+  provider = aws.default
+
   bucket = "${data.aws_caller_identity.current.account_id}-jdio-frontend"
 }
 
@@ -34,6 +42,8 @@ resource "aws_s3_bucket_ownership_controls" "this" {
 }
 
 resource "aws_s3_bucket_public_access_block" "this" {
+  provider = aws.default
+
   bucket = aws_s3_bucket.this.id
 
   block_public_acls       = false
@@ -44,6 +54,8 @@ resource "aws_s3_bucket_public_access_block" "this" {
 }
 
 resource "aws_s3_bucket_acl" "example" {
+  provider = aws.default
+
   depends_on = [
     aws_s3_bucket_ownership_controls.this,
     aws_s3_bucket_public_access_block.this,
@@ -54,6 +66,8 @@ resource "aws_s3_bucket_acl" "example" {
 }
 
 resource "aws_s3_bucket_policy" "bucket_policy" {
+  provider = aws.default
+
   bucket = aws_s3_bucket.this.id
   policy = jsonencode(
     {
@@ -72,6 +86,8 @@ resource "aws_s3_bucket_policy" "bucket_policy" {
 }
 
 resource "aws_s3_object" "this" {
+  provider = aws.default
+
   for_each     = fileset(path.module, "content/**/*.{html,css,js}")
   bucket       = aws_s3_bucket.this.id
   key          = replace(each.value, "/^content//", "")
@@ -81,6 +97,8 @@ resource "aws_s3_object" "this" {
 }
 
 resource "aws_s3_bucket_website_configuration" "this" {
+  provider = aws.default
+
   bucket = aws_s3_bucket.this.id
 
   index_document {
@@ -89,6 +107,8 @@ resource "aws_s3_bucket_website_configuration" "this" {
 }
 
 resource "aws_cloudfront_distribution" "this" {
+  provider = aws.default
+
   aliases         = [data.aws_route53_zone.this.name]
   enabled         = true
   is_ipv6_enabled = true
@@ -142,16 +162,22 @@ resource "aws_cloudfront_distribution" "this" {
 
 
 resource "aws_acm_certificate" "this" {
+  provider = aws.acm_certificate
+
   domain_name       = data.aws_route53_zone.this.name
   validation_method = "DNS"
 }
 
 resource "aws_acm_certificate_validation" "cert" {
+  provider = aws.default
+
   certificate_arn         = aws_acm_certificate.this.arn
   validation_record_fqdns = [aws_route53_record.this.fqdn]
 }
 
 resource "aws_route53_record" "this" {
+  provider = aws.default
+
   zone_id = data.aws_route53_zone.this.zone_id
   name    = data.aws_route53_zone.this.name
   type    = "A"
