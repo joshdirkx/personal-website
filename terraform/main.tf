@@ -138,12 +138,18 @@ resource "aws_cloudfront_distribution" "this" {
   price_class = "PriceClass_100"
 }
 
-output "website_url" {
-  description = "Website URL (HTTPS)"
-  value       = aws_cloudfront_distribution.this.domain_name
+resource "aws_route53_zone" "this" {
+  name = "joshdirkx.com"
 }
 
-output "s3_url" {
-  description = "S3 hosting URL (HTTP)"
-  value       = aws_s3_bucket_website_configuration.this.website_endpoint
+resource "aws_route53_record" "this" {
+  zone_id = aws_route53_zone.this.zone_id
+  name    = "joshdirkx.com"
+  type    = "A"
+
+  alias {
+    name                   = aws_cloudfront_distribution.this.domain_name
+    zone_id                = aws_cloudfront_distribution.this.hosted_zone_id
+    evaluate_target_health = false
+  }
 }
