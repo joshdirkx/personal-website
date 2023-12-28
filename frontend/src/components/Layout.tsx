@@ -64,7 +64,7 @@ export default function Layout() {
                     <div className="p-6">
                         <h2 className="pb-4">Howdy y'all, I'm Josh.</h2>
                         <div>
-                          Customer obsessed Engineer.
+                          Software Engineer, Solutions Architect.
                         </div>
                     </div>
                   </div>

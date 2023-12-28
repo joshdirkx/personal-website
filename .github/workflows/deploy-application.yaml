@@ -164,14 +164,15 @@ jobs:
       - name: Remove existing artifacts from AWS S3
         run: |
           aws s3 rm \
-          s3://${{ secrets.AWS_S3_WEBSITE_BUCKET }} \
+          ${{ secrets.AWS_S3_WEBSITE_BUCKET }} \
           --recursive \
           --region ${{ secrets.AWS_REGION }}
 
       - name: Deploy artifacts to AWS S3
         run: |
           aws s3 cp \
-          ./build s3://${{ secrets.AWS_S3_WEBSITE_BUCKET }} \
+          ./build \
+          ${{ secrets.AWS_S3_WEBSITE_BUCKET }} \
           --recursive \
           --acl public-read \
           --region ${{ secrets.AWS_REGION }}
