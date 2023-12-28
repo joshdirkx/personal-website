@@ -1,4 +1,4 @@
-import { CheckIcon, HandThumbUpIcon, UserIcon } from '@heroicons/react/20/solid'
+import { UserIcon } from '@heroicons/react/20/solid'
 
 const timeline = [
   {
