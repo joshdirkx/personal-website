@@ -156,7 +156,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: download artifacts
-        uses: actions/download-artifacts@master
+        uses: actions/download-artifact@master
         with:
           name: build
           path: frontend/build
