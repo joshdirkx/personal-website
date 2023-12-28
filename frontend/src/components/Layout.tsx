@@ -1,15 +1,12 @@
 import { Popover } from '@headlessui/react'
 import Background from './Background'
 import WorkHistory from './WorkHistory'
+import Headshot from '../images/headshot.png'
 
 // const navigation = [
 //   // { name: 'About', href: '#', current: true },
 //   // { name: 'Articles', href: '#', current: false },
 // ]
-
-// function classNames(...classes: any[]) {
-//   return classes.filter(Boolean).join(' ')
-// }
 
 export default function Layout() {
   return (
@@ -63,11 +60,15 @@ export default function Layout() {
                   <div className="overflow-hidden rounded-lg bg-white shadow">
                     <div className="p-6">
                         <div className="flex">
-                          <h2 className="pb-4">Howdy y'all, I'm Josh.</h2>
-                          {/*<img src="../images/headshot.png" />*/}
-                        </div>
-                        <div>
-                          words
+                          <img
+                            src={Headshot}
+                            className="object-contain rounded-full flex items-center justify-center"
+                            alt="headshot"
+                          />
+                          <div className="pb-4 pl-10">
+                            Howdy y'all, I'm Josh.<br /><br />
+                            I love helping engineers write code with as little friction as possible.
+                          </div>
                         </div>
                     </div>
                   </div>
