@@ -21,7 +21,7 @@ export default function Layout() {
               <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                 <div className="relative flex items-center justify-center py-5 lg:justify-between">
                   <div className="absolute left-0 flex-shrink-0 lg:static text-white">
-                    joshdirkx.io
+                    joshdirkx.io | Software Engineer, Solutions Architect, Technical Leader
                   </div>
                 </div>
                 {/*<Header />*/}
@@ -67,7 +67,7 @@ export default function Layout() {
                           {/*<img src="../images/headshot.png" />*/}
                         </div>
                         <div>
-                          Software Engineer, Solutions Architect.
+                          words
                         </div>
                     </div>
                   </div>
