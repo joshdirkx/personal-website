@@ -160,7 +160,7 @@ resource "aws_cloudfront_distribution" "this" {
   price_class = "PriceClass_100"
 
   depends_on = [
-    aws_acm_certificate
+    aws_acm_certificate.this
   ]
 }
 
