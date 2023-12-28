@@ -58,11 +58,14 @@ export default function Layout() {
               <div className="grid grid-cols-1 gap-4 lg:col-span-2">
                 <section aria-labelledby="section-1-title">
                   <h2 className="sr-only" id="section-1-title">
-                    Section title
+                    About
                   </h2>
                   <div className="overflow-hidden rounded-lg bg-white shadow">
                     <div className="p-6">
-                        <h2 className="pb-4">Howdy y'all, I'm Josh.</h2>
+                        <div className="flex">
+                          <h2 className="pb-4">Howdy y'all, I'm Josh.</h2>
+                          {/*<img src="../images/headshot.png" />*/}
+                        </div>
                         <div>
                           Software Engineer, Solutions Architect.
                         </div>
