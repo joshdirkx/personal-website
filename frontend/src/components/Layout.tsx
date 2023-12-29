@@ -17,7 +17,7 @@ export default function Layout() {
             <>
               <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                 <div className="relative flex items-center justify-center py-5 lg:justify-between">
-                  <div className="absolute left-0 flex-shrink-0 lg:static text-white">
+                  <div className="absolute left-0 flex-shrink-0 lg:static text-solarized-base01 bg-solarized-base2 rounded-lg p-2 shadow">
                     joshdirkx.com | Software Engineer, Solutions Architect, Technical Leader
                   </div>
                 </div>
@@ -57,7 +57,7 @@ export default function Layout() {
                   <h2 className="sr-only" id="section-1-title">
                     About
                   </h2>
-                  <div className="overflow-hidden rounded-lg bg-white shadow">
+                  <div className="overflow-hidden rounded-lg bg-solarized-base3 shadow">
                     <div className="p-6">
                         <div className="flex">
                           <img
@@ -65,7 +65,7 @@ export default function Layout() {
                             className="object-contain rounded-full flex items-center justify-center"
                             alt="headshot"
                           />
-                          <div className="pb-4 pl-10">
+                          <div className="pb-4 pl-10 text-solarized-base01">
                             Howdy y'all, I'm Josh.<br /><br />
                             I love helping engineers write code with as little friction as possible.
                           </div>
@@ -80,7 +80,7 @@ export default function Layout() {
                   <h2 className="sr-only" id="section-2-title">
                     Work History
                   </h2>
-                  <div className="overflow-hidden rounded-lg bg-white shadow">
+                  <div className="overflow-hidden rounded-lg bg-solarized-base3 shadow">
                     <div className="p-6">
                       <WorkHistory />
                     </div>

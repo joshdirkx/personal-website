@@ -7,6 +7,7 @@ body {
   font-family: 'Fira Code Variable';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #eee8d5
 }
 
 code {
