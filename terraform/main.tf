@@ -195,7 +195,7 @@ resource "aws_route53_record" "cname_record" {
 }
 
 resource "aws_acm_certificate_validation" "this" {
-  provider = aws.default
+  provider = aws.us_east_1
 
   certificate_arn         = aws_acm_certificate.this.arn
   validation_record_fqdns = [for record in aws_route53_record.cname_record : record.fqdn]
