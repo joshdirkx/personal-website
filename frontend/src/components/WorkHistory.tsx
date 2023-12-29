@@ -103,20 +103,21 @@ export default function WorkHistory() {
                     src={`${event.image}`}
                     alt="work history logo"
                     className={classNames(
-                    'object-contain h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white'
+                    'object-contain h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-solarized-base02'
                     )}
                   />
                 </div>
                 <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
                   <div>
-                    <p className="text-sm text-gray-500">
-                      {event.content}{' '}
-                      <a href={event.href} className="font-medium text-gray-900">
+                    <p className="text-sm text-solarized-base0 font-medium">
+                      {event.content}
+                      <br />
+                      <a href={event.href} className="font-medium text-solarized-base01">
                         {event.target}
                       </a>
                     </p>
                   </div>
-                  <div className="whitespace-nowrap text-right text-sm text-gray-500">
+                  <div className="whitespace-nowrap text-right text-sm text-solarized-base0">
                     <time dateTime={event.datetime}>{event.date}</time>
                   </div>
                 </div>

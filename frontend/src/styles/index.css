@@ -7,10 +7,5 @@ body {
   font-family: 'Fira Code Variable';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #eee8d5
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  background: #002b36
 }
