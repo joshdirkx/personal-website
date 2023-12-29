@@ -176,6 +176,10 @@ resource "aws_acm_certificate_validation" "cert" {
 
   certificate_arn         = aws_acm_certificate.this.arn
   validation_record_fqdns = [aws_route53_record.this.fqdn]
+
+  depends_on = [
+    aws_acm_certificate.this
+  ]
 }
 
 resource "aws_route53_record" "this" {
@@ -190,4 +194,8 @@ resource "aws_route53_record" "this" {
     zone_id                = aws_cloudfront_distribution.this.hosted_zone_id
     evaluate_target_health = false
   }
+
+  depends_on = [
+    aws_acm_certificate.this
+  ]
 }
