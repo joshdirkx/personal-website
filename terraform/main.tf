@@ -158,6 +158,10 @@ resource "aws_cloudfront_distribution" "this" {
   }
 
   price_class = "PriceClass_100"
+
+  depends_on = [
+    aws_acm_certificate_validation.this
+  ]
 }
 
 resource "aws_acm_certificate" "this" {
@@ -165,6 +169,10 @@ resource "aws_acm_certificate" "this" {
 
   domain_name       = data.aws_route53_zone.this.name
   validation_method = "DNS"
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "aws_route53_record" "cname_record" {
@@ -205,8 +213,4 @@ resource "aws_route53_record" "a_record" {
     zone_id                = aws_cloudfront_distribution.this.hosted_zone_id
     evaluate_target_health = false
   }
-
-  depends_on = [
-    aws_acm_certificate_validation.this
-  ]
 }
