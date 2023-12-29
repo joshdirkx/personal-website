@@ -158,6 +158,10 @@ resource "aws_cloudfront_distribution" "this" {
   }
 
   price_class = "PriceClass_100"
+
+  depends_on = [
+    aws_acm_certificate.this
+  ]
 }
 
 resource "aws_acm_certificate" "this" {
