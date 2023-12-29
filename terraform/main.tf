@@ -106,59 +106,59 @@ resource "aws_s3_bucket_website_configuration" "this" {
   }
 }
 
-#resource "aws_cloudfront_distribution" "this" {
-#  provider = aws.default
-#
-#  aliases         = [data.aws_route53_zone.this.name]
-#  enabled         = true
-#  is_ipv6_enabled = true
-#
-#  origin {
-#    domain_name = aws_s3_bucket_website_configuration.this.website_endpoint
-#    origin_id   = aws_s3_bucket.this.bucket_regional_domain_name
-#
-#    custom_origin_config {
-#      http_port                = 80
-#      https_port               = 443
-#      origin_keepalive_timeout = 5
-#      origin_protocol_policy   = "http-only"
-#      origin_read_timeout      = 30
-#      origin_ssl_protocols = [
-#        "TLSv1.2",
-#      ]
-#    }
-#  }
-#
-#  viewer_certificate {
-#    acm_certificate_arn = aws_acm_certificate.this.arn
-#    ssl_support_method  = "sni-only"
-#  }
-#
-#  restrictions {
-#    geo_restriction {
-#      restriction_type = "none"
-#      locations        = []
-#    }
-#  }
-#
-#  default_cache_behavior {
-#    viewer_protocol_policy = "redirect-to-https"
-#    compress               = true
-#    allowed_methods        = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
-#    cached_methods         = ["GET", "HEAD"]
-#    target_origin_id       = aws_s3_bucket.this.bucket_regional_domain_name
-#
-#    forwarded_values {
-#      query_string = true
-#
-#      cookies {
-#        forward = "all"
-#      }
-#    }
-#  }
-#
-#  price_class = "PriceClass_100"
-#}
+resource "aws_cloudfront_distribution" "this" {
+  provider = aws.default
+
+  aliases         = [data.aws_route53_zone.this.name]
+  enabled         = true
+  is_ipv6_enabled = true
+
+  origin {
+    domain_name = aws_s3_bucket_website_configuration.this.website_endpoint
+    origin_id   = aws_s3_bucket.this.bucket_regional_domain_name
+
+    custom_origin_config {
+      http_port                = 80
+      https_port               = 443
+      origin_keepalive_timeout = 5
+      origin_protocol_policy   = "http-only"
+      origin_read_timeout      = 30
+      origin_ssl_protocols = [
+        "TLSv1.2",
+      ]
+    }
+  }
+
+  viewer_certificate {
+    acm_certificate_arn = aws_acm_certificate.this.arn
+    ssl_support_method  = "sni-only"
+  }
+
+  restrictions {
+    geo_restriction {
+      restriction_type = "none"
+      locations        = []
+    }
+  }
+
+  default_cache_behavior {
+    viewer_protocol_policy = "redirect-to-https"
+    compress               = true
+    allowed_methods        = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+    cached_methods         = ["GET", "HEAD"]
+    target_origin_id       = aws_s3_bucket.this.bucket_regional_domain_name
+
+    forwarded_values {
+      query_string = true
+
+      cookies {
+        forward = "all"
+      }
+    }
+  }
+
+  price_class = "PriceClass_100"
+}
 
 resource "aws_acm_certificate" "this" {
   provider = aws.us_east_1
@@ -167,23 +167,23 @@ resource "aws_acm_certificate" "this" {
   validation_method = "DNS"
 }
 
-#resource "aws_acm_certificate_validation" "cert" {
-#  provider = aws.default
-#
-#  certificate_arn         = aws_acm_certificate.this.arn
-#  validation_record_fqdns = [aws_route53_record.this.fqdn]
-#}
+resource "aws_acm_certificate_validation" "cert" {
+  provider = aws.default
 
-#resource "aws_route53_record" "this" {
-#  provider = aws.default
-#
-#  zone_id = data.aws_route53_zone.this.zone_id
-#  name    = data.aws_route53_zone.this.name
-#  type    = "A"
-#
-#  alias {
-#    name                   = aws_cloudfront_distribution.this.domain_name
-#    zone_id                = aws_cloudfront_distribution.this.hosted_zone_id
-#    evaluate_target_health = false
-#  }
-#}
+  certificate_arn         = aws_acm_certificate.this.arn
+  validation_record_fqdns = [aws_route53_record.this.fqdn]
+}
+
+resource "aws_route53_record" "this" {
+  provider = aws.default
+
+  zone_id = data.aws_route53_zone.this.zone_id
+  name    = data.aws_route53_zone.this.name
+  type    = "A"
+
+  alias {
+    name                   = aws_cloudfront_distribution.this.domain_name
+    zone_id                = aws_cloudfront_distribution.this.hosted_zone_id
+    evaluate_target_health = false
+  }
+}
