@@ -17,7 +17,7 @@ export default function Layout() {
             <>
               <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                 <div className="relative flex items-center justify-center py-5 lg:justify-between">
-                  <div className="absolute left-0 flex-shrink-0 lg:static text-solarized-base0 bg-solarized-base02 rounded-lg p-2 shadow font-bold">
+                  <div className="absolute left-0 flex-shrink-0 lg:static text-solarized-base0 bg-solarized-base3 rounded-lg p-2 shadow font-bold">
                     joshdirkx.com | Software Engineer, Solutions Architect, Technical Leader
                   </div>
                 </div>
@@ -57,7 +57,7 @@ export default function Layout() {
                   <h2 className="sr-only" id="section-1-title">
                     About
                   </h2>
-                  <div className="overflow-hidden rounded-lg bg-solarized-base02 shadow">
+                  <div className="overflow-hidden rounded-lg bg-solarized-base3 shadow">
                     <div className="p-6">
                         <div className="flex">
                           <img
@@ -80,7 +80,7 @@ export default function Layout() {
                   <h2 className="sr-only" id="section-2-title">
                     Work History
                   </h2>
-                  <div className="overflow-hidden rounded-lg bg-solarized-base02 shadow">
+                  <div className="overflow-hidden rounded-lg bg-solarized-base3 shadow">
                     <div className="p-6">
                       <WorkHistory />
                     </div>
