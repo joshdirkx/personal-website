@@ -8,9 +8,9 @@ import Header from "./Header";
 //   { name: "Articles", href: "#", current: false },
 // ];
 
-function classNames(...classes: any[]) {
-  return classes.filter(Boolean).join(" ");
-}
+// function classNames(...classes: any[]) {
+//   return classes.filter(Boolean).join(" ");
+// }
 
 export default function Layout() {
   return (
