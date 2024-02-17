@@ -129,6 +129,14 @@ resource "aws_cloudfront_distribution" "this" {
     }
   }
 
+  custom_error_response {
+    error_caching_min_ttl = 300
+    error_code            = 404
+    response_code         = 200
+    response_page_path    = "/index.html"
+  }
+
+
   viewer_certificate {
     acm_certificate_arn = aws_acm_certificate.this.arn
     ssl_support_method  = "sni-only"
