@@ -3,10 +3,10 @@ function classNames(...classes: any[]) {
 }
 
 const navigation = [
-  { name: "About", href: "#", current: true },
-  { name: "Resume", href: "/resume", current: false },
-  { name: "Articles", href: "#Articles", current: false },
-  { name: "Contact", href: "#Articles", current: false },
+  { name: "About", href: "#about", current: true },
+  { name: "Resume", href: "#resume", current: false },
+  { name: "Articles", href: "#articles", current: false },
+  { name: "Contact", href: "#contact", current: false },
 ];
 
 export default function Navigation() {
