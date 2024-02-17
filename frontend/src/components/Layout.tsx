@@ -1,16 +1,11 @@
 import { Popover } from "@headlessui/react";
 import Background from "./Background";
 import WorkHistory from "./WorkHistory";
-// import ArticleList from "./ArticleList";
+import ArticleList from "./ArticleList";
+import Divider from "./Divider";
 import Header from "./Header";
-// const navigation = [
-//   { name: "About", href: "#", current: true },
-//   { name: "Articles", href: "#", current: false },
-// ];
-
-// function classNames(...classes: any[]) {
-//   return classes.filter(Boolean).join(" ");
-// }
+import Resume from "./Resume";
+import Navigation from "./Navigation";
 
 export default function Layout() {
   return (
@@ -21,27 +16,11 @@ export default function Layout() {
             <>
               <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                 <Header />
-                {/*<div className="hidden border-t border-white border-opacity-20 py-5 lg:block">*/}
-                {/*  <div className="grid grid-cols-3 items-center gap-8">*/}
-                {/*    <div className="col-span-2">*/}
-                {/*      <nav className="flex space-x-4">*/}
-                {/*        {navigation.map((item) => (*/}
-                {/*          <a*/}
-                {/*            key={item.name}*/}
-                {/*            href={item.href}*/}
-                {/*            className={classNames(*/}
-                {/*              item.current ? "text-white" : "text-indigo-100",*/}
-                {/*              "rounded-md bg-white bg-opacity-0 px-3 py-2 text-sm font-medium hover:bg-opacity-10",*/}
-                {/*            )}*/}
-                {/*            aria-current={item.current ? "page" : undefined}*/}
-                {/*          >*/}
-                {/*            {item.name}*/}
-                {/*          </a>*/}
-                {/*        ))}*/}
-                {/*      </nav>*/}
-                {/*    </div>*/}
-                {/*  </div>*/}
-                {/*</div>*/}
+                <div className="grid grid-cols-3 items-center gap-8 my-4">
+                  <div className="col-span-2">
+                    <Navigation />
+                  </div>
+                </div>
               </div>
             </>
           )}
@@ -59,7 +38,7 @@ export default function Layout() {
                   <div className="overflow-hidden rounded-lg bg-solarized-base3 shadow">
                     <div className="p-6">
                       <div className="flex">
-                        <div className="pb-4 pl-10 text-solarized-base02">
+                        <div className="pb-4 px-5 text-solarized-base02 text-justify">
                           Lorem ipsum dolor sit amet, consectetur adipiscing
                           elit, sed do eiusmod tempor incididunt ut labore et
                           dolore magna aliqua. Tellus orci ac auctor augue
@@ -174,7 +153,10 @@ export default function Layout() {
                 </section>
               </div>
             </div>
-            {/*<ArticleList />*/}
+            <Divider />
+            <ArticleList />
+            <Divider />
+            <Resume />
           </div>
         </main>
       </div>
