@@ -5,6 +5,7 @@ import ArticleList from "./ArticleList";
 import Divider from "./Divider";
 import Header from "./Header";
 import Resume from "./Resume";
+import Contact from "./Contact";
 import Navigation from "./Navigation";
 
 export default function Layout() {
@@ -154,9 +155,11 @@ export default function Layout() {
               </div>
             </div>
             <Divider />
+            <Resume />
+            <Divider />
             <ArticleList />
             <Divider />
-            <Resume />
+            <Contact />
           </div>
         </main>
       </div>

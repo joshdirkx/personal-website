@@ -4,8 +4,8 @@ function classNames(...classes: any[]) {
 
 const navigation = [
   { name: "About", href: "#", current: true },
-  { name: "Articles", href: "#Articles", current: false },
   { name: "Resume", href: "/resume", current: false },
+  { name: "Articles", href: "#Articles", current: false },
   { name: "Contact", href: "#Articles", current: false },
 ];
 
