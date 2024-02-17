@@ -4,8 +4,8 @@
 
 body {
   margin: 0;
-  font-family: 'Fira Code Variable';
+  font-family: "Fira Code Variable";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #eee8d5
+  background: #eee8d5;
 }
