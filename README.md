@@ -11,11 +11,11 @@ This repository contains all the code powering my personal website.
 The architecture in this frontend application is designed to be simple,
 scalable, and secure.
 
-When a user navigates to joshdirkx.com, the request is first directed to a
-Domain Name Service (DNS), in this case Amazon Route 53, a highly scalable and
-available service that routes requests to the most appropriate locations to serve
-the requested content. This could be based on a variety of factors, including
-latency, health checks, or geographic location.
+When a user navigates to [joshdirkx.com](https://joshdirkx.com), the request is
+first directed to a Domain Name Service (DNS), in this case Amazon Route 53, a
+highly scalable and available service that routes requests to the most appropriate
+locations to serve the requested content. This could be based on a variety of
+factors, including latency, health checks, or geographic location.
 
 When the DNS resolves, Route 53 will direct the request to Amazon
 CloudFront, a content delivery network (CDN) service. CloudFront ensures low
@@ -37,13 +37,20 @@ eavesdropping.
 
 ## Getting Started
 
+There is a bit of bootstrapping required before you can run this project's
+pipeline.
+
+### Preparing AWS
+
+- https://www.automat-it.com/post/using-github-actions-with-aws-iam-roles
+- Create a state bucket
+
+### Preparing GitHub
+
+- Adding 4 repo secrets
+
 follow
 https://www.automat-it.com/post/using-github-actions-with-aws-iam-roles
 add admin permissions
 
 create s3 state bucket
-
-update repo secrets
-AWS_REGION
-AWS_IAM_ROLE_ARN
-AWS_S3_STATE_BUCKET
