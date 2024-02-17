@@ -28,7 +28,7 @@ export default function Article() {
             Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae
             sed turpis id.
           </p>
-          <ul role="list" className="mt-8 max-w-xl space-y-8 text-gray-600">
+          <div className="mt-8 max-w-xl space-y-8 text-gray-600">
             <li className="flex gap-x-3">
               <CheckCircleIcon
                 className="mt-1 h-5 w-5 flex-none text-indigo-600"
@@ -65,7 +65,7 @@ export default function Article() {
                 Et magna sit morbi lobortis.
               </span>
             </li>
-          </ul>
+          </div>
           <p className="mt-8">
             Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis
             odio id et. Id blandit molestie auctor fermentum dignissim. Lacus

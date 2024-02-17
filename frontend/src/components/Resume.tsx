@@ -1,8 +1,3 @@
-import {
-  CheckCircleIcon,
-  InformationCircleIcon,
-} from "@heroicons/react/20/solid";
-
 export default function Article() {
   return (
     <div className="bg-solarized-base3 px-6 py-32 lg:px-8 rounded-lg">
@@ -20,18 +15,18 @@ export default function Article() {
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">
             Experience
           </h2>
-          <ul role="list" className="mt-8 max-w-4xl space-y-8 text-gray-600">
+          <div role="list" className="mt-8 max-w-4xl space-y-8 text-gray-600">
             <li className="flex gap-x-3">
               <span>
                 <strong className="font-semibold text-gray-900">
                   Consultant // Series A Startup
                 </strong>{" "}
                 – Seattle, WA (05.2023 - present)
-                <ul>
+                <div>
                   <li>Placeholder</li>
                   <li>Placeholder</li>
                   <li>Placeholder</li>
-                </ul>
+                </div>
               </span>
             </li>
             <li className="flex gap-x-3">
@@ -40,9 +35,9 @@ export default function Article() {
                   Software Engineer // TrueCar
                 </strong>{" "}
                 – Seattle, WA (02.2023 - 09.2023)
-                <ul>
+                <div>
                   <li>Placeholder</li>
-                </ul>
+                </div>
               </span>
             </li>
             <li className="flex gap-x-3">
@@ -51,12 +46,12 @@ export default function Article() {
                   Solutions Architect // Release
                 </strong>{" "}
                 – Seattle, WA (03.2022 - 01.2023)
-                <ul>
+                <div>
                   <li>Placeholder</li>
-                </ul>
+                </div>
               </span>
             </li>
-          </ul>
+          </div>
           <h2 className="mt-16 text-2xl font-bold tracking-tight text-gray-900">
             Certifications
           </h2>
