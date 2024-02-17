@@ -71,12 +71,6 @@
   animation-delay: -14s;
 }
 
-.lower-dot--one {
-  top: 1000px;
-  background: #6c71c4;
-  animation-delay: -21s;
-}
-
 @keyframes dot-animation {
   0% {
     transform: translate(0, 0);

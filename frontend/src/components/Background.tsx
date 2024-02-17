@@ -6,7 +6,6 @@ export default function Background() {
         <div className="dot dot--one"></div>
         <div className="dot dot--two"></div>
         <div className="dot dot--three"></div>
-        <div className="dot lower-dot--one"></div>
       </div>
     </div>
   );
