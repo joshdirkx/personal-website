@@ -34,23 +34,3 @@ a service that lets you easily provision, deploy, and manage public and
 private SSL/TLS certificates. This securely encrypts the communication
 between the user and CloudFront with an SSL/TLS certificate, preventing
 eavesdropping.
-
-## Getting Started
-
-There is a bit of bootstrapping required before you can run this project's
-pipeline.
-
-### Preparing AWS
-
-- https://www.automat-it.com/post/using-github-actions-with-aws-iam-roles
-- Create a state bucket
-
-### Preparing GitHub
-
-- Adding 4 repo secrets
-
-follow
-https://www.automat-it.com/post/using-github-actions-with-aws-iam-roles
-add admin permissions
-
-create s3 state bucket
