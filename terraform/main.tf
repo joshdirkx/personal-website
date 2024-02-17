@@ -154,6 +154,7 @@ resource "aws_cloudfront_distribution" "this" {
     allowed_methods        = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods         = ["GET", "HEAD"]
     target_origin_id       = aws_s3_bucket.this.bucket_regional_domain_name
+    max_ttl                = 0
 
     forwarded_values {
       query_string = true
