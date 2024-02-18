@@ -9,7 +9,7 @@ const timeline = [
     content: "Solutions Architect",
     target: "Highlight",
     href: "#",
-    date: "2023 - now",
+    date: "2023 - 2024",
     datetime: "2020-09-20",
     icon: UserIcon,
     iconBackground: "bg-gray-400",
@@ -39,7 +39,7 @@ const timeline = [
   },
   {
     id: 4,
-    content: "Manager, Software Engineering",
+    content: "Engineering Manager",
     target: "TrueCar",
     href: "#",
     date: "2021 - 2022",

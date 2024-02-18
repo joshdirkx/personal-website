@@ -12,7 +12,7 @@ export default function Resume() {
           Customer obsessed problem solver with a background in Software
           Engineering, Software Engineering Management, and Solution
           Architecture. Skilled at working on cross-functional teams to deliver
-          simple solutions to complex, esoteric business needs.
+          simple solutions to complex business needs.
         </p>
         <div className="mt-10 max-w-2xl">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">
