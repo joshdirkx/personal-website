@@ -5,7 +5,7 @@ import {
 
 export default function Article() {
   return (
-    <div className="bg-solarized-base3 px-6 py-32 lg:px-8 rounded-lg">
+    <div className="bg-white px-6 py-32 lg:px-8 rounded-lg">
       <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700 text-justify">
         <p className="text-base font-semibold leading-7 text-indigo-600">
           Introducing

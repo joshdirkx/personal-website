@@ -2,11 +2,11 @@ import Headshot from "../images/headshot.png";
 
 export default function Header() {
   return (
-    <div className="overflow-hidden rounded-lg bg-solarized-base3 shadow mt-4 mb-4">
+    <div className="overflow-hidden rounded-lg bg-white shadow mt-4 mb-4">
       <h2 className="sr-only" id="profile-overview-title">
         Profile Overview
       </h2>
-      <div className="bg-solarized-base3 p-6">
+      <div className="bg-white p-6">
         <div className="sm:flex sm:items-center sm:justify-between">
           <div className="sm:flex sm:space-x-5">
             <div className="flex-shrink-0">

@@ -106,7 +106,7 @@ export default function WorkHistory() {
                     src={`${event.image}`}
                     alt="work history logo"
                     className={classNames(
-                      "object-contain h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-solarized-base3",
+                      "object-contain h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white",
                     )}
                   />
                 </div>

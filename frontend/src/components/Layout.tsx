@@ -1,12 +1,15 @@
 import { Popover } from "@headlessui/react";
 import Background from "./Background";
 import WorkHistory from "./WorkHistory";
-import ArticleList from "./ArticleList";
+// import ArticleList from "./ArticleList";
 import Divider from "./Divider";
 import Header from "./Header";
 import Resume from "./Resume";
-import Contact from "./Contact";
-import Navigation from "./Navigation";
+// import Contact from "./Contact";
+// import Navigation from "./Navigation";
+import Testimonial from "./Testimonial";
+import Testimonials from "./Testimonials";
+import Links from "./Links";
 
 export default function Layout() {
   return (
@@ -18,9 +21,7 @@ export default function Layout() {
               <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                 <Header />
                 <div className="grid grid-cols-3 items-center gap-8 my-4">
-                  <div className="col-span-2">
-                    <Navigation />
-                  </div>
+                  <div className="col-span-2">{/*<Navigation />*/}</div>
                 </div>
               </div>
             </>
@@ -36,7 +37,7 @@ export default function Layout() {
                   <h2 className="sr-only" id="section-1-title">
                     About
                   </h2>
-                  <div className="overflow-hidden rounded-lg bg-solarized-base3 shadow">
+                  <div className="overflow-hidden rounded-lg bg-white shadow">
                     <div className="p-6">
                       <div className="flex">
                         <div className="pb-4 px-5 text-solarized-base02 text-justify">
@@ -81,59 +82,6 @@ export default function Layout() {
                           pellentesque sit amet porttitor. Sed vulputate odio ut
                           enim blandit volutpat maecenas volutpat. Odio aenean
                           sed adipiscing diam.
-                          <br />
-                          <br />
-                          Cursus metus aliquam eleifend mi in nulla. A diam
-                          sollicitudin tempor id eu nisl nunc mi. Massa placerat
-                          duis ultricies lacus sed turpis tincidunt id aliquet.
-                          Eget nullam non nisi est sit amet facilisis magna.
-                          Turpis massa tincidunt dui ut. Purus in mollis nunc
-                          sed id semper risus in. A diam sollicitudin tempor id
-                          eu. Commodo quis imperdiet massa tincidunt nunc
-                          pulvinar sapien. Felis bibendum ut tristique et
-                          egestas. Tempor orci dapibus ultrices in iaculis nunc
-                          sed augue. Quam lacus suspendisse faucibus interdum
-                          posuere lorem ipsum dolor. Porta nibh venenatis cras
-                          sed felis eget velit aliquet. Tellus elementum
-                          sagittis vitae et leo duis ut diam quam. Tellus rutrum
-                          tellus pellentesque eu tincidunt tortor aliquam. Odio
-                          morbi quis commodo odio aenean sed adipiscing diam. In
-                          hendrerit gravida rutrum quisque non. At volutpat diam
-                          ut venenatis tellus. Ornare arcu dui vivamus arcu
-                          felis bibendum ut tristique et.
-                          <br />
-                          <br />
-                          Auctor neque vitae tempus quam pellentesque nec nam
-                          aliquam sem. Eget arcu dictum varius duis. Cum sociis
-                          natoque penatibus et magnis dis. Faucibus vitae
-                          aliquet nec ullamcorper sit amet risus. Purus viverra
-                          accumsan in nisl nisi. Pellentesque diam volutpat
-                          commodo sed egestas egestas. Eu scelerisque felis
-                          imperdiet proin. Id aliquet lectus proin nibh nisl
-                          condimentum id venenatis a. Sed risus ultricies
-                          tristique nulla aliquet. Non blandit massa enim nec
-                          dui. A diam maecenas sed enim ut sem viverra aliquet
-                          eget. Aliquet nibh praesent tristique magna sit amet
-                          purus. Eget nulla facilisi etiam dignissim diam quis
-                          enim lobortis scelerisque.
-                          <br />
-                          <br />
-                          Sit amet dictum sit amet justo donec enim diam
-                          vulputate. Augue mauris augue neque gravida in
-                          fermentum. Ullamcorper sit amet risus nullam eget
-                          felis eget. Sodales neque sodales ut etiam sit amet
-                          nisl. Vulputate eu scelerisque felis imperdiet proin
-                          fermentum leo. Euismod quis viverra nibh cras
-                          pulvinar. Ligula ullamcorper malesuada proin libero
-                          nunc consequat interdum varius sit. Placerat orci
-                          nulla pellentesque dignissim. Arcu cursus vitae congue
-                          mauris. Fusce ut placerat orci nulla pellentesque. Sed
-                          velit dignissim sodales ut eu sem integer vitae. Amet
-                          mattis vulputate enim nulla aliquet porttitor.
-                          Pellentesque habitant morbi tristique senectus et.
-                          Auctor eu augue ut lectus. Libero volutpat sed cras
-                          ornare arcu dui vivamus. Varius vel pharetra vel
-                          turpis nunc eget lorem dolor.
                         </div>
                       </div>
                     </div>
@@ -146,7 +94,7 @@ export default function Layout() {
                   <h2 className="sr-only" id="section-2-title">
                     Work History
                   </h2>
-                  <div className="overflow-hidden rounded-lg bg-solarized-base3 shadow">
+                  <div className="overflow-hidden rounded-lg bg-white shadow">
                     <div className="p-6">
                       <WorkHistory />
                     </div>
@@ -156,10 +104,16 @@ export default function Layout() {
             </div>
             <Divider />
             <Resume />
+            {/*<Divider />*/}
+            {/*<ArticleList />*/}
             <Divider />
-            <ArticleList />
+            <Testimonial />
             <Divider />
-            <Contact />
+            <Testimonials />
+            {/*<Divider />*/}
+            {/*<Contact />*/}
+            <Divider />
+            <Links />
           </div>
         </main>
       </div>
