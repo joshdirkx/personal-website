@@ -297,7 +297,7 @@ resource "aws_lambda_function_url" "this" {
   authorization_type = "NONE"
 
   cors {
-    allow_origins = ["https://www.joshdirkx.com"]
+    allow_origins = ["https://www.joshdirkx.com", "http://localhost:3000"]
     allow_methods = ["GET"]
   }
 }
