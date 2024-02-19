@@ -26,7 +26,7 @@ type Item struct {
 }
 
 func Handler() ([]string, error) {
-	url := "https://medium.com/feed/@joshdirkx"
+	url := "https://medium.com/feed/@matwerber"
 
 	resp, err := http.Get(url)
 	if err != nil {
