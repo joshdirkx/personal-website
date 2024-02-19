@@ -41,7 +41,7 @@ fi
 aws ecr get-login-password --region "$AWS_REGION" | docker login --username AWS --password-stdin $(aws sts get-caller-identity --query Account --output text).dkr.ecr."$AWS_REGION".amazonaws.com
 
 # Build your Docker image
-docker build --no-cache -t "$ECR_REPOSITORY_NAME" .
+docker build --no-cache -t "$ECR_REPOSITORY_NAME" lambda/
 
 # Tag your Docker image
 docker tag "$ECR_REPOSITORY_NAME":latest $(aws sts get-caller-identity --query Account --output text).dkr.ecr."$AWS_REGION".amazonaws.com/"$ECR_REPOSITORY_NAME":"$IMAGE_TAG"
