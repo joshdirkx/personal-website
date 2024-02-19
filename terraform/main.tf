@@ -282,7 +282,6 @@ resource "null_resource" "this" {
 
 resource "aws_lambda_function" "this" {
   function_name = random_string.lambda_function_name.result
-  architectures = ["arm64"]
   role          = aws_iam_role.this.arn
   package_type  = "Image"
   image_uri     = "${data.aws_caller_identity.current.account_id}.dkr.ecr.${var.aws_region}.amazonaws.com/${aws_ecr_repository.this.name}:${var.image_tag}"
