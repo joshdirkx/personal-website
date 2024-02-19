@@ -27,6 +27,8 @@ locals {
   }
 }
 
+### Frontend
+
 resource "aws_s3_bucket" "this" {
   provider = aws.default
 
@@ -221,4 +223,71 @@ resource "aws_route53_record" "a_record" {
     zone_id                = aws_cloudfront_distribution.this.hosted_zone_id
     evaluate_target_health = false
   }
+}
+
+
+### Medium RSS Lambda Function
+
+resource "aws_ecr_repository" "this" {
+  name = random_string.ecr_repository_name.result
+}
+
+resource "aws_iam_role" "this" {
+  name = random_string.lambda_function_role_name.result
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = "sts:AssumeRole"
+        Principal = {
+          Service = "lambda.amazonaws.com"
+        }
+        Effect = "Allow"
+        Sid    = ""
+      },
+    ]
+  })
+}
+
+resource "aws_iam_role_policy" "this" {
+  name = random_string.lambda_function_role_policy_name.result
+  role = aws_iam_role.this.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action = [
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ]
+        Resource = "arn:aws:logs:*:*:*"
+        Effect = "Allow"
+      },
+    ]
+  })
+}
+
+resource "null_resource" "this" {
+  provisioner "local-exec" {
+    command = "./lambda/build_image --aws_region ${var.aws_region} --ecr_repository_name ${aws_ecr_repository.this.name} --image_tag ${var.image_tag}"
+  }
+
+  triggers = {
+    always_run = "${timestamp()}"
+  }
+}
+
+resource "aws_lambda_function" "this" {
+  function_name    = random_string.lambda_function_name.result
+  architectures    = ["arm64"]
+  role             = aws_iam_role.this.arn
+  package_type     = "Image"
+  image_uri        = "${data.aws_caller_identity.current.account_id}.dkr.ecr.${var.aws_region}.amazonaws.com/${aws_ecr_repository.this.name}:${var.image_tag}"
+
+  depends_on = [
+    null_resource.this
+  ]
 }
