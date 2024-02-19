@@ -2,11 +2,9 @@ package main
 
 import (
 	"bytes"
-	"encoding/json"
 	"encoding/xml"
 	"fmt"
 	"net/http"
-	"strings"
 
 	"github.com/aws/aws-lambda-go/lambda"
 )
