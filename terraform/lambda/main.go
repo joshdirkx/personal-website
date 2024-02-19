@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"encoding/json"
 	"encoding/xml"
 	"fmt"
 	"net/http"
@@ -25,7 +26,13 @@ type Item struct {
 	Encoded     string `xml:"encoded"`
 }
 
-func Handler() ([]string, error) {
+type Post struct {
+    Title       string `json:"title"`
+    Link        string `json:"link"`
+    Description string `json:"description"`
+}
+
+func Handler() ([]Post, error) {
 	url := "https://medium.com/feed/@matwerber"
 
 	resp, err := http.Get(url)
@@ -43,22 +50,21 @@ func Handler() ([]string, error) {
 		return nil, fmt.Errorf("error parsing XML: %v", err)
 	}
 
-	results := make([]string, 0)
-	for _, item := range rss.Channel.Items {
-		description := item.Encoded
-
-		if len(description) > 140 {
-			description = description[:140]
-		}
-
-		description = strings.Replace(description, "<![CDATA[", "", -1)
-		description = strings.Replace(description, "]]>", "", -1)
-		description = strings.Replace(description, "<p>", "", -1)
-		description = strings.Replace(description, "</p>", "", -1)
-
-		result := fmt.Sprintf("Title: %s\nLink: %s\nDescription: %s", item.Title, item.Link, description)
-		results = append(results, result)
-	}
+	var results []Post
+    for _, item := range rss.Channel.Items {
+        // Extract the first 140 characters of the article's content.
+        description := item.Encoded
+        if len(description) > 140 {
+            description = description[:140]
+        }
+        // Create a Post struct for each item and append it to the results slice.
+        post := Post{
+            Title:       item.Title,
+            Link:        item.Link,
+            Description: description, // Assume you've already cleaned up the description as before.
+        }
+        results = append(results, post)
+    }
 
 	return results, nil
 }
