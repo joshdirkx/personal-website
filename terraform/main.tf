@@ -272,7 +272,7 @@ resource "aws_iam_role_policy" "this" {
 
 resource "null_resource" "this" {
   provisioner "local-exec" {
-    command = "./lambda/build_image --aws_region ${var.aws_region} --ecr_repository_name ${aws_ecr_repository.this.name} --image_tag ${var.image_tag}"
+    command = "./lambda/build_image.sh --aws_region ${var.aws_region} --ecr_repository_name ${aws_ecr_repository.this.name} --image_tag ${var.image_tag}"
   }
 
   triggers = {
