@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
 
-const requestHeaders: Headers = new Headers();
-
-requestHeaders.set("Access-Control-Allow-Origin", "https://joshdirkx.com");
-
 interface Item {
   id: 0;
   link: string;
@@ -23,7 +19,6 @@ export default function ArticleList() {
           "https://gz7qe65r25njl362je6y6t63xq0ifrth.lambda-url.us-west-2.on.aws/",
           {
             method: "GET",
-            headers: requestHeaders,
           },
         );
         const data = await response.json();
