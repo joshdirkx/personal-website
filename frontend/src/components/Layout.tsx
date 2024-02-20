@@ -1,7 +1,7 @@
 import { Popover } from "@headlessui/react";
 import Background from "./Background";
 import WorkHistory from "./WorkHistory";
-// import ArticleList from "./ArticleList";
+import ArticleList from "./ArticleList";
 import Divider from "./Divider";
 import Header from "./Header";
 import Resume from "./Resume";
@@ -104,14 +104,14 @@ export default function Layout() {
             </div>
             <Divider />
             <Resume />
-            {/*<Divider />*/}
-            {/*<ArticleList />*/}
             <Divider />
             <Testimonial />
             <Divider />
             <Testimonials />
             {/*<Divider />*/}
             {/*<Contact />*/}
+            <Divider />
+            <ArticleList />
             <Divider />
             <Links />
           </div>

@@ -34,7 +34,7 @@ type Post struct {
 func Handler() ([]Post, error) {
   imgRegex := regexp.MustCompile(`<img[^>]+\bsrc=["']([^"']+)["']`)
 
-	url := "https://medium.com/feed/@matwerber"
+	url := "https://medium.com/feed/@joshdirkx"
 
 	resp, err := http.Get(url)
 	if err != nil {
