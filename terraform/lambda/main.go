@@ -27,10 +27,12 @@ type Item struct {
 type Post struct {
     Title       string `json:"title"`
     Link        string `json:"link"`
-    Description string `json:"description"`
+    ImageURL    string `json:"image_url,omitempty"` // Use omitempty to omit the field if it's empty
 }
 
 func Handler() ([]Post, error) {
+  imgRegex := regexp.MustCompile(`<img[^>]+\bsrc=["']([^"']+)["']`)
+
 	url := "https://medium.com/feed/@matwerber"
 
 	resp, err := http.Get(url)
@@ -50,16 +52,16 @@ func Handler() ([]Post, error) {
 
 	var results []Post
     for _, item := range rss.Channel.Items {
-        // Extract the first 140 characters of the article's content.
-        description := item.Encoded
-        if len(description) > 140 {
-            description = description[:140]
+        var imageURL string
+        matches := imgRegex.FindStringSubmatch(description)
+        if len(matches) > 1 {
+            imageURL = matches[1]
         }
-        // Create a Post struct for each item and append it to the results slice.
+
         post := Post{
             Title:       item.Title,
             Link:        item.Link,
-            Description: description, // Assume you've already cleaned up the description as before.
+            ImageURL:    imageURL,
         }
         results = append(results, post)
     }
