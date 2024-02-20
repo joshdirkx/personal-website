@@ -5,6 +5,7 @@ import (
 	"encoding/xml"
 	"fmt"
 	"net/http"
+	"regexp"
 
 	"github.com/aws/aws-lambda-go/lambda"
 )
