@@ -52,8 +52,12 @@ func Handler() ([]Post, error) {
 
 	var results []Post
     for _, item := range rss.Channel.Items {
+        description := item.Encoded
+
         var imageURL string
+
         matches := imgRegex.FindStringSubmatch(description)
+
         if len(matches) > 1 {
             imageURL = matches[1]
         }
@@ -63,6 +67,7 @@ func Handler() ([]Post, error) {
             Link:        item.Link,
             ImageURL:    imageURL,
         }
+
         results = append(results, post)
     }
 
